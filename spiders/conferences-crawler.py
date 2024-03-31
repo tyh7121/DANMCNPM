@@ -1,8 +1,10 @@
 #Thư viện Python để web scraping.
 import scrapy
+
 #Thư viện hỗ trợ Scrapy xử lý Javascript.
-from scrapy_splash import SplashRequest
+from scrapy_splash import SplashRequest, SplashFormRequest
 #Thư viện kết nối và thao tác với database MySQL.
+
 from mysql.connector import connect, Error
 
 #Class Conference mô tả cấu trúc của một bản ghi dữ liệu về hội nghị.
@@ -22,7 +24,11 @@ class Conference(scrapy.Item):
 
 #Class ConferencesCrawler kế thừa từ scrapy.Spider và thực hiện các chức năng
 class ConferencesCrawler(scrapy.Spider):
+
+    next_page = 1
+
     #hàm init Khởi tạo kết nối với database MySQL.
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         try:
@@ -50,41 +56,53 @@ class ConferencesCrawler(scrapy.Spider):
 
     #hàm Xử lý dữ liệu từ trang web chính bao gồm lấy thông tin cơ bản và truy cập trang chi tiết từng hội nghị
     def parse(self, response):
+        print("In parse now....")
         conferences = response.css("tr.data1")
-        # i = 0
+        print("length of conferences: " + str(len(conferences.xpath("./li"))))
+        i = 0
         for conf in conferences:
-            # if i > 0:
-            #     break
+            if i > 0:
+                print("i is greater than 0, so breaking")
+                break
 
             conference = Conference()
 
-            # i = i + 1
+            i = i + 1
 
             td0 = conf.xpath("./td")[0]
             conference['date'] = td0.xpath("./a/span/text()").get()
             # Get date of conf
-            # print("Conf date:" + td0.xpath("./a/span/text()").get())
+            print("Conf date:" + td0.xpath("./a/span/text()").get())
             
             td1 = conf.xpath("./td")[1]
             conference['title'] = td1.xpath("./a/text()").get()
             # Get conf title
-            # print("Conf title:" + td1.xpath("./a/text()").get())
+            print("Conf title:" + td1.xpath("./a/text()").get())
             
             td2 = conf.xpath("./td")[2]
             conference['country'] = td2.xpath("./strong/a/text()").get().strip()
             conference['url'] = td2.xpath("./strong/a/@href").get()
             # Get conf country
-            # print("Country:" + td2.xpath("./strong/a/text()").get().strip())
+            print("Country:" + td2.xpath("./strong/a/text()").get().strip())
             # get conf link
-            # print("Conf URL:" + td2.xpath("./strong/a/@href").get())
+            print("Conf URL:" + td2.xpath("./strong/a/@href").get())
 
             # print(conference)
             # print("---\n")
 
             yield response.follow(conference['url'], self.parse_conf, meta={'conference': conference})
 
+
+        pagination = response.css("div.pagination ul")
+        is_next_page_active = pagination.xpath("./li[10]").get("class")
+        while 'active' in is_next_page_active:
+            self.next_page = self.next_page + 1
+            yield SplashFormRequest(url="https://www.allconferencealert.com/cat_load_pagi_data.php?topic=Engineering%20and%20Technology&date=", callback=self.parse, args={'wait': 5}, formdata={'page': str(self.next_page)})
+
     #hàm Xử lý dữ liệu từ trang chi tiết của hội nghị, Lấy thông tin chi tiết của hội nghị và lưu vào database
+
     def parse_conf(self, response):
+        print("In parse_conf now....")
         conference = response.meta['conference']
         event_details = response.css("div.conference-detail ul")[0]
 
