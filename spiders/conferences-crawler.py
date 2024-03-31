@@ -1,7 +1,11 @@
+#Thư viện Python để web scraping.
 import scrapy
+#Thư viện hỗ trợ Scrapy xử lý Javascript.
 from scrapy_splash import SplashRequest
+#Thư viện kết nối và thao tác với database MySQL.
 from mysql.connector import connect, Error
 
+#Class Conference mô tả cấu trúc của một bản ghi dữ liệu về hội nghị.
 class Conference(scrapy.Item):
     date = scrapy.Field()
     title = scrapy.Field()
@@ -16,8 +20,9 @@ class Conference(scrapy.Item):
     inquiry_email = scrapy.Field()
     registration_url = scrapy.Field()
 
-
+#Class ConferencesCrawler kế thừa từ scrapy.Spider và thực hiện các chức năng
 class ConferencesCrawler(scrapy.Spider):
+    #hàm init Khởi tạo kết nối với database MySQL.
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         try:
@@ -31,9 +36,11 @@ class ConferencesCrawler(scrapy.Spider):
         except Error as e:
             print("Error establishing database connection:")
             print(e)
-
+            
+    #Thuộc tính xác định tên của spider.
     name = "conferences"
-
+    
+    #Hàm Tạo các yêu cầu đầu tiên đến trang web mục tiêu.
     def start_requests(self):
         urls = [
             "https://www.allconferencealert.com/engineering-and-technology.html"
@@ -41,6 +48,7 @@ class ConferencesCrawler(scrapy.Spider):
         for url in urls:
             yield SplashRequest(url=url, callback=self.parse, args={'wait': 2})
 
+    #hàm Xử lý dữ liệu từ trang web chính bao gồm lấy thông tin cơ bản và truy cập trang chi tiết từng hội nghị
     def parse(self, response):
         conferences = response.css("tr.data1")
         # i = 0
@@ -75,6 +83,7 @@ class ConferencesCrawler(scrapy.Spider):
 
             yield response.follow(conference['url'], self.parse_conf, meta={'conference': conference})
 
+    #hàm Xử lý dữ liệu từ trang chi tiết của hội nghị, Lấy thông tin chi tiết của hội nghị và lưu vào database
     def parse_conf(self, response):
         conference = response.meta['conference']
         event_details = response.css("div.conference-detail ul")[0]
@@ -133,6 +142,7 @@ class ConferencesCrawler(scrapy.Spider):
 
         yield conference.__str__()
 
+    #Hàm lưu thông tin hội nghị vào database.
     def store_conference(self, conference):
         insert_conferences_query = """
             INSERT INTO conferences
