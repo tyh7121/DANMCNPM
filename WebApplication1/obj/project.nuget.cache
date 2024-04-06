@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nXVim3g2yXGZlmbcQ70KcCzxlO2wFULjUqnn4C44vQIEEz9GLs7bWo1pd85Zj9lHVMN/SNvupDmK2XeesFJrsg==",
+  "dgSpecHash": "Fyp3c+/XyNK8tWzAQ+zI6EDpMPpvXqLmvE9e5mQA3mlqa1HUaMruTF0sh8lrMbR2SYKwR/TjEE3z1M0wB+SRkw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\letho\\OneDrive\\Desktop\\crawler web\\DANMCNPM\\WebApplication1\\CrawlerProject_API.csproj",
+  "projectFilePath": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\WebApplication1\\CrawlerProject_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\letho\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\letho\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

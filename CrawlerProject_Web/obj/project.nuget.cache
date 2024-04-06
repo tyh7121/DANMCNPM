@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YnctfR8vFBmzXgqIjztkWTF2Q6sXOI4wZ5ukSD9lei1fOPIdCDrK+0ZKnLXVb7rrf+FW6xwmUprt5mHi7KLcCQ==",
+  "dgSpecHash": "2x6UYTbs26HSCJwL4WDnPkXzgU9zGE2HdjMfzq8Lz08pCCADVpG42ily6fixYncThVFfORmjWmtcYZZiB6ZQtw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\letho\\OneDrive\\Desktop\\crawler web\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
+  "projectFilePath": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\letho\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

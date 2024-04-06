@@ -68,3 +68,38 @@ C:\Users\letho\OneDrive\Desktop\crawler web\DANMCNPM\CrawlerProject_Web\obj\Debu
 C:\Users\letho\OneDrive\Desktop\crawler web\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.pdb
 C:\Users\letho\OneDrive\Desktop\crawler web\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.genruntimeconfig.cache
 C:\Users\letho\OneDrive\Desktop\crawler web\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\ref\CrawlerProject_Web.dll
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\bin\Debug\net8.0\appsettings.json
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\bin\Debug\net8.0\appsettings.Production.json
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\bin\Debug\net8.0\CrawlerProject_Web.staticwebassets.runtime.json
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\bin\Debug\net8.0\CrawlerProject_Web.exe
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\bin\Debug\net8.0\CrawlerProject_Web.deps.json
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\bin\Debug\net8.0\CrawlerProject_Web.runtimeconfig.json
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\bin\Debug\net8.0\CrawlerProject_Web.dll
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\bin\Debug\net8.0\CrawlerProject_Web.pdb
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.csproj.AssemblyReference.cache
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.AssemblyInfoInputs.cache
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.AssemblyInfo.cs
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.csproj.CoreCompileInputs.cache
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.RazorAssemblyInfo.cache
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.RazorAssemblyInfo.cs
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.sourcelink.json
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\staticwebassets\msbuild.CrawlerProject_Web.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\staticwebassets\msbuild.build.CrawlerProject_Web.props
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.CrawlerProject_Web.props
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CrawlerProject_Web.props
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\scopedcss\bundle\CrawlerProject_Web.styles.css
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\scopedcss\projectbundle\CrawlerProject_Web.bundle.scp.css
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerP.48ED2603.Up2Date
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.dll
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\refint\CrawlerProject_Web.dll
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.pdb
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\CrawlerProject_Web.genruntimeconfig.cache
+C:\Users\letho\OneDrive\Desktop\NMPM1\DANMCNPM\CrawlerProject_Web\obj\Debug\net8.0\ref\CrawlerProject_Web.dll

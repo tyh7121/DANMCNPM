@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrawlerProject_API", "WebApplication1\CrawlerProject_API.csproj", "{4FEFB0D4-0EDD-43FF-B7DB-9F0C25F9AB75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrawlerProject_Web", "CrawlerProject_Web\CrawlerProject_Web.csproj", "{07B1C1D7-03A6-45F0-A3A4-D7A3E6839B32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrawlerProject_Web", "CrawlerProject_Web\CrawlerProject_Web.csproj", "{07B1C1D7-03A6-45F0-A3A4-D7A3E6839B32}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "doannm", "..\..\doannm\doannm\doannm.pyproj", "{D585B6C7-5B9D-49C8-8172-052F5FAF0D1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,8 @@ Global
 		{07B1C1D7-03A6-45F0-A3A4-D7A3E6839B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07B1C1D7-03A6-45F0-A3A4-D7A3E6839B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07B1C1D7-03A6-45F0-A3A4-D7A3E6839B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D585B6C7-5B9D-49C8-8172-052F5FAF0D1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D585B6C7-5B9D-49C8-8172-052F5FAF0D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4527,11 +4527,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\letho\\OneDrive\\Desktop\\crawler web\\DANMCNPM\\WebApplication1\\CrawlerProject_API.csproj",
+      "projectUniqueName": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\WebApplication1\\CrawlerProject_API.csproj",
       "projectName": "CrawlerProject_API",
-      "projectPath": "C:\\Users\\letho\\OneDrive\\Desktop\\crawler web\\DANMCNPM\\WebApplication1\\CrawlerProject_API.csproj",
+      "projectPath": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\WebApplication1\\CrawlerProject_API.csproj",
       "packagesPath": "C:\\Users\\letho\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\letho\\OneDrive\\Desktop\\crawler web\\DANMCNPM\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\letho\\AppData\\Roaming\\NuGet\\NuGet.Config",

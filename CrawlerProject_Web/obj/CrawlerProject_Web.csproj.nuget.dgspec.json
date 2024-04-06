@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\letho\\OneDrive\\Desktop\\crawler web\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj": {}
+    "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\letho\\OneDrive\\Desktop\\crawler web\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj": {
+    "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\letho\\OneDrive\\Desktop\\crawler web\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
+        "projectUniqueName": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
         "projectName": "CrawlerProject_Web",
-        "projectPath": "C:\\Users\\letho\\OneDrive\\Desktop\\crawler web\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
+        "projectPath": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
         "packagesPath": "C:\\Users\\letho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\letho\\OneDrive\\Desktop\\crawler web\\DANMCNPM\\CrawlerProject_Web\\obj\\",
+        "outputPath": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\letho\\AppData\\Roaming\\NuGet\\NuGet.Config",
