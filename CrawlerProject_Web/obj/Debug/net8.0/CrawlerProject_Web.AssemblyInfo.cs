@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CrawlerProject_Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50129a7e7b673568ea8c46b2d871e010a6ef6961")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92f93320a6fd91de1fbd69fa554032bb147a865f")]
 [assembly: System.Reflection.AssemblyProductAttribute("CrawlerProject_Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CrawlerProject_Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

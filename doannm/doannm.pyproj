@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{d585b6c7-5b9d-49c8-8172-052f5faf0d1a}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>DANMCNPM\main.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="DANMCNPM\requirements.txt" />
+    <Content Include="proxies.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DANMCNPM\items.py" />
+    <Compile Include="DANMCNPM\main.py" />
+    <Compile Include="DANMCNPM\middlewares.py" />
+    <Compile Include="DANMCNPM\pipelines.py" />
+    <Compile Include="DANMCNPM\settings.py" />
+    <Compile Include="DANMCNPM\spiders\conferences-crawler.py" />
+    <Compile Include="DANMCNPM\spiders\__init__.py" />
+    <Compile Include="DANMCNPM\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DANMCNPM" />
+    <Folder Include="DANMCNPM\spiders" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.9</Version>
+      <Description>env (Python 3.9 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

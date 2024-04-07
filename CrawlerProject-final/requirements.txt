@@ -1,0 +1,4 @@
+# All requirements from https://github.com/tyh7121/DANMCNPM/tree/feature/firstCrawler
+websocket-client
+pymssql
+apscheduler

@@ -1,0 +1,106 @@
+﻿@model List<Conference>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center mb-4">
+            <h2 class="heading-section">Conferences</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="h5 mb-4 text-center">Collapsible Table</h3>
+            <div class="table-wrap">
+                <table class="table myaccordion table-hover" id="accordion">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Deadline</th>
+                            <th>Venue</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Count(); i++)
+                        {
+                            <tr data-toggle="collapse"
+                                data-target="#collapse@(i + 1)"
+                                aria-expanded="@(i==0?"true":"false")"
+                                aria-controls="collapse@(i+1)"
+                                class="@(i==0?"":"collapsed")">
+                                <th scope="row">@(i + 1)</th>
+                                <td class="w-50">@(Model[i].Title)</td>
+                                <td class="w-25">@(Model[i].Date)</td>
+                                <td class="w-25">@(Model[i].Deadline)</td>
+                                <td>@(Model[i].Country)</td>
+                                <td>
+                                    <i class="fa" aria-hidden="@(i==0?"true":"false")"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6"
+                                    id="collapse@(i+1)"
+                                    class="collapse @(i==0?"show":"") acc"
+                                    data-parent="#accordion">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h5 class="mb-1">Organizer</h5>
+                                                    </div>
+                                                    <p class="mb-1">@(Model[i].Organizer)</p>
+                                                </a>
+                                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h5 class="mb-1">Conference Inquiry Email</h5>
+                                                    </div>
+                                                    <p class="mb-1">@(Model[i].InquiryEmail)</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h5 class="mb-1">Start Date:</h5>
+                                                    </div>
+                                                    <p class="mb-1">@(Model[i].StartDate)</p>
+                                                </a>
+                                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h5 class="mb-1">End Date:</h5>
+                                                    </div>
+                                                    <p class="mb-1">@(Model[i].EndDate)</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h5 class="mb-1">Event Status</h5>
+                                                    </div>
+                                                    <p class="mb-1">@(Model[i].EventStatus)</p>
+                                                </a>
+                                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h5 class="mb-1">Secretary</h5>
+                                                    </div>
+                                                    <p class="mb-1">@(Model[i].Secretary)</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 mt-3">
+                                        <a class="btn btn-primary text-white" href="@(Model[i].RegistrationUrl)" target="_blank">Register</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
