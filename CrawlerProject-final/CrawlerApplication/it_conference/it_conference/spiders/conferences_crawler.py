@@ -1,10 +1,15 @@
-#Thư viện Python để web scraping.
 import scrapy
 from scrapy_splash import SplashRequest, SplashFormRequest
 from websocket import create_connection
+
+# MSSQ
 from pymssql import connect, Error
+#If using Mysql
+#from mysql.connector import connect, Error
+
 import ssl
 from scrapy.utils.reactor import install_reactor
+
 
 
 class Conference(scrapy.Item):
@@ -22,21 +27,31 @@ class Conference(scrapy.Item):
     registration_url = scrapy.Field()
 
 class ConferencesCrawler(scrapy.Spider):
+    isDevelopment = True
+
     install_reactor("twisted.internet.asyncioreactor.AsyncioSelectorReactor")
     name = "conferences"
     next_page = 1
     total_pages = 1
-    max_conference = 1
-    conferences_to_store = []
+    max_conference = 10
     
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.conferences = []
         try:
-            self.db = connect(
-                host="localhost:1433",
-                user="sa",
-                database="conferences",
-                password="Password123"
+            if self.isDevelopment:
+                self.db = connect(
+                    host="localhost:1433",
+                    user="sa",
+                    database="conferences",
+                    password="Password123"
+                )
+            else:
+                self.db = connect(
+                    host="hotelprojectserver.database.windows.net:1433",
+                    user="sqladmin",
+                    database="HotelAPI",
+                    password="Asddsaas1#"
             )
             print("Database connection established.")
         except Error as e:
@@ -51,8 +66,15 @@ class ConferencesCrawler(scrapy.Spider):
             yield SplashRequest(url=url, callback=self.parse, args={'wait': 2})
     
     def closed(self, reason):
+        print("-------------------------Saving----------------------------")
+        self.store_conference()
         print("-------------------------DONE----------------------------")
-        ws = create_connection("wss://localhost:7150/ws",  sslopt={"cert_reqs": ssl.CERT_NONE})
+        
+        if self.isDevelopment:
+            ws = create_connection("wss://localhost:7150/ws",  sslopt={"cert_reqs": ssl.CERT_NONE})
+        else:
+            ws = create_connection("wss://crawlerproject-web.azurewebsites.net/ws",  sslopt={"cert_reqs": ssl.CERT_NONE})
+        
         print("Sending")
         ws.send("reload")
         print("Sent")
@@ -102,7 +124,6 @@ class ConferencesCrawler(scrapy.Spider):
             yield SplashFormRequest(url="https://www.allconferencealert.com/cat_load_pagi_data.php?topic=Engineering%20and%20Technology&date=", callback=self.parse, args={'wait': 5}, formdata={'page': str(self.next_page)})
             
             
-        
 
     def parse_conf(self, response):
         print("In parse_conf now....")
@@ -130,34 +151,34 @@ class ConferencesCrawler(scrapy.Spider):
             conference['inquiry_email'] = event_details.xpath("./li[9]/h3/following-sibling::text()").get().strip()
             conference['registration_url'] = event_details.xpath("./li[10]/span//a/@href").get().strip()
 
-        self.conferences_to_store.append(conference)
-        self.store_conference(conference)
+        self.conferences.append(conference)
 
         yield conference
 
-    def store_conference(self, conference):
+    def store_conference(self):
+
         insert_conferences_query = """
             INSERT INTO conferences
             (date, title, country, url, event_status, organizer, deadline, start_date, end_date, secretary, inquiry_email, registration_url)
             VALUES 
             (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
-        values = (conference['date'], conference['title'], conference['country'], conference['url'], conference['event_status'], conference['organizer'], conference['deadline'], conference['start_date'], conference['end_date'], conference['secretary'], conference['inquiry_email'], conference['registration_url'])
         try:
             cursor = self.db.cursor()
-            cursor.execute(insert_conferences_query, values)
+            
+            cursor.execute("""
+            DELETE FROM conferences
+            """)
+            print("Deleted Conferences")
+            listcon = []
+            for conference in self.conferences:
+                values = (conference['date'], conference['title'], conference['country'], conference['url'], conference['event_status'], conference['organizer'], conference['deadline'], conference['start_date'], conference['end_date'], conference['secretary'], conference['inquiry_email'], conference['registration_url'])
+                cursor.execute(insert_conferences_query, values)
+            
             self.db.commit()
-            print(cursor.rowcount, " row(s) were inserted.")
+            print("Conferences data stored in the database.")
         except Error as e:
-            print("Error inserting a conference into the table:")
+            print("Error inserting conferences into the table:")
             print(e)
-    
-    def send_reload_message(self):
-        try:
-            with create_connection("wss://localhost:7150/ws") as conn:
-                conn.send("reload1")
-                print(f"Received message from server: {conn.recv()}")
-                print("done sending")
-        except Exception as e:
-            print("Error sending reload message via WebSocket:")
-            print(e)
+        finally:
+            self.db.close()

@@ -14,6 +14,7 @@ class Scraper:
         self.scheduler = TwistedScheduler()
 
     def run_spiders(self):
-        self.scheduler.add_job(self.process.crawl, 'interval', args=[self.spider], seconds=60)
+        self.process.crawl(self.spider)
+        self.scheduler.add_job(self.process.crawl, 'interval', args=[self.spider], seconds=300)
         self.scheduler.start()
         self.process.start(False)

@@ -106,41 +106,40 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container my-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container mt-3">
             &copy; 2024 - CrawlerProject_Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script>
-        // Tạo một WebSocket client
-        const webSocket = new WebSocket("wss://localhost:7150/ws");
+        const host = window.location.hostname;
+        const port = window.location.port;
 
-        // Lắng nghe sự kiện khi kết nối thành công
+        const webSocketUrl = `wss://${host}:${port}/ws`;
+
+        const webSocket = new WebSocket(webSocketUrl);
+
         webSocket.onopen = function (event) {
             console.log("WebSocket connection established.");
         };
 
-        // Lắng nghe sự kiện khi nhận được tin nhắn từ server
         webSocket.onmessage = function (event) {
             const message = event.data;
             if (message === "reload") {
-                // Nếu nhận được tin nhắn "reload" từ server, thực hiện reload trang web
                 webSocket.close();
                 window.location.reload();
             }
-            else
-            {
+            else {
                 console.log(message);
             }
         };
 
-        // Xử lý sự kiện khi có lỗi xảy ra trong kết nối WebSocket
         webSocket.onerror = function (event) {
             console.error("WebSocket error:", event);
         };
