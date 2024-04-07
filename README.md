@@ -1,2 +1,2 @@
-Sử dụng code trong project CrawlerProject-final
-Đọc và làm theo readme trong project CrawlerProject-final
+Sử dụng code trong Project CrawlerProject-final.
+Đọc và làm theo README trong Project CrawlerProject-final.
