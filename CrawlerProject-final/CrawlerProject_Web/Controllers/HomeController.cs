@@ -16,7 +16,7 @@ namespace CrawlerProject_Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<Conference> list = await _crawlerService.GetConferencesAsync();
+            List<Conference> list = await _crawlerService.GetConferencesAsync(HttpContext.Session.GetString("JWTToken"));
             return View(list);
         }
 

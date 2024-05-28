@@ -32,7 +32,13 @@ namespace CrawlerProject_API.Repository
             && u.Password == loginRequestDTO.Password);
 
             if (user == null)
-                return null;
+            {
+                return new LoginResponseDTO()
+                {
+                    Token = "",
+                    User = null
+                };
+            }
 
             //if user was found generate JWT Token
             var key = Encoding.ASCII.GetBytes(secretKey);

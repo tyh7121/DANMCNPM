@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using CrawlerProject_API.Models;
 using CrawlerProject_API.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CrawlerProject_API.Controllers
 {
@@ -16,6 +17,7 @@ namespace CrawlerProject_API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<Conference>>> GetAll()
         {

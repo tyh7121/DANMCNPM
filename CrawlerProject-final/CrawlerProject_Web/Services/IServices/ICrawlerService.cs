@@ -4,6 +4,6 @@ namespace CrawlerProject_Web.Services.IServices
 {
     public interface ICrawlerService
     {
-        Task<List<Conference>> GetConferencesAsync();
+        Task<List<Conference>> GetConferencesAsync(string token);
     }
 }
