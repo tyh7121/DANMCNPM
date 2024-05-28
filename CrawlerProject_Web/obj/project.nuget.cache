@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2x6UYTbs26HSCJwL4WDnPkXzgU9zGE2HdjMfzq8Lz08pCCADVpG42ily6fixYncThVFfORmjWmtcYZZiB6ZQtw==",
+  "dgSpecHash": "Y1hZko6oLso=",
   "success": true,
-  "projectFilePath": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
+  "projectFilePath": "C:\\Users\\thuan\\Downloads\\doan\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\letho\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\thuan\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,4 +1,8 @@
-# All requirements from https://github.com/tyh7121/DANMCNPM/tree/feature/firstCrawler
+scrapy
+scrapy-splash
+urllib3==1.26.6
+Twisted==22.10.0
+mysql-connector-python
 websocket-client
 pymssql
 apscheduler

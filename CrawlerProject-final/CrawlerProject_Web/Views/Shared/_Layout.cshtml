@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpAcc
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,79 +14,11 @@
           type="text/css" />
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script nonce="581714bb-27c8-4da1-a69f-c6974ad2dcc0">
-        try {
-            (function (w, d) {
-                !(function (k, l, m, n) {
-                    k[m] = k[m] || {};
-                    k[m].executed = [];
-                    k.zaraz = { deferred: [], listeners: [] };
-                    k.zaraz.q = [];
-                    k.zaraz._f = function (o) {
-                        return async function () {
-                            var p = Array.prototype.slice.call(arguments);
-                            k.zaraz.q.push({ m: o, a: p });
-                        };
-                    };
-                    for (const q of ["track", "set", "debug"])
-                        k.zaraz[q] = k.zaraz._f(q);
-                    k.zaraz.init = () => {
-                        var r = l.getElementsByTagName(n)[0],
-                            s = l.createElement(n),
-                            t = l.getElementsByTagName("title")[0];
-                        t && (k[m].t = l.getElementsByTagName("title")[0].text);
-                        k[m].x = Math.random();
-                        k[m].w = k.screen.width;
-                        k[m].h = k.screen.height;
-                        k[m].j = k.innerHeight;
-                        k[m].e = k.innerWidth;
-                        k[m].l = k.location.href;
-                        k[m].r = l.referrer;
-                        k[m].k = k.screen.colorDepth;
-                        k[m].n = l.characterSet;
-                        k[m].o = new Date().getTimezoneOffset();
-                        if (k.dataLayer)
-                            for (const x of Object.entries(
-                                Object.entries(dataLayer).reduce(
-                                    (y, z) => ({ ...y[1], ...z[1] }),
-                                    {}
-                                )
-                            ))
-                                zaraz.set(x[0], x[1], { scope: "page" });
-                        k[m].q = [];
-                        for (; k.zaraz.q.length;) {
-                            const A = k.zaraz.q.shift();
-                            k[m].q.push(A);
-                        }
-                        s.defer = !0;
-                        for (const B of [localStorage, sessionStorage])
-                            Object.keys(B || {})
-                                .filter((D) => D.startsWith("_zaraz_"))
-                                .forEach((C) => {
-                                    try {
-                                        k[m]["z_" + C.slice(7)] = JSON.parse(B.getItem(C));
-                                    } catch {
-                                        k[m]["z_" + C.slice(7)] = B.getItem(C);
-                                    }
-                                });
-                        s.referrerPolicy = "origin";
-                        s.src =
-                            "/cdn-cgi/zaraz/s.js?z=" +
-                            btoa(encodeURIComponent(JSON.stringify(k[m])));
-                        r.parentNode.insertBefore(s, r);
-                    };
-                    ["complete", "interactive"].includes(l.readyState)
-                        ? zaraz.init()
-                        : k.addEventListener("DOMContentLoaded", zaraz.init);
-                })(w, d, "zarazData", "script");
-            })(window, document);
-        } catch (e) {
-            throw (fetch("/cdn-cgi/zaraz/t"), e);
-        }
-    </script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+    <partial name="_Notification" />
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -101,6 +35,27 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (httpAcc.HttpContext.Session.GetString("JWTToken") != null &&
+                         httpAcc.HttpContext.Session.GetString("JWTToken").ToString().Length > 0)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Hello, @User.Identity.Name</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Auth" asp-action="Logout">Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Auth" asp-action="Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Auth" asp-action="Register">Register</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -148,18 +103,113 @@
             webSocket.close();
         });
     </script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/main.js"></script>
     <script defer
             src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
             integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
             data-cf-beacon='{"rayId":"86c0fa789bb0c7b6","version":"2024.3.0","token":"cd0b4b3a733644fc843ef0b185f98241"}'
             crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script>
+        // Formatting function for row details - modify as you need
+        function format(data) {
+            return `
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Organizer</h5>
+                                    </div>
+                                    <p class="mb-1">${data.organizer}</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Conference Inquiry Email</h5>
+                                    </div>
+                                    <p class="mb-1">${data.inquiryemail}</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Start Date:</h5>
+                                    </div>
+                                    <p class="mb-1">${data.startdate}</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">End Date:</h5>
+                                    </div>
+                                    <p class="mb-1">${data.enddate}</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Event Status</h5>
+                                    </div>
+                                    <p class="mb-1">${data.eventstatus}</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Secretary</h5>
+                                    </div>
+                                    <p class="mb-1">${data.secretary}</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <a class="btn btn-primary text-white" href="${data.url}" target="_blank">Register</a>
+                    </div>
+                    `;
+        }
+
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                order: [[1, 'asc']]
+            });
+
+            // Add event listener for opening and closing details
+            $('#example tbody').on('click', 'td.dt-control', function () {
+                var tr = $(this).closest('tr');
+                var row = table.row(tr);
+
+                if (row.child.isShown()) {
+                    // This row is already open - close it
+                    row.child.hide();
+                    tr.removeClass('shown');
+                }
+                else {
+                    // Open this row
+                    var data = {
+                        inquiryemail: tr.data('inquiryemail'),
+                        organizer: tr.data('organizer'),
+                        startdate: tr.data('startdate'),
+                        enddate: tr.data('enddate'),
+                        eventstatus: tr.data('eventstatus'),
+                        secretary: tr.data('secretary'),
+                        url: tr.data('url')
+                    };
+                    row.child(format(data)).show();
+                    tr.addClass('shown');
+                }
+            });
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

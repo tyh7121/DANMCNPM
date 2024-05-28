@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj": {}
+    "C:\\Users\\thuan\\Downloads\\doan\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj": {
+    "C:\\Users\\thuan\\Downloads\\doan\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
+        "projectUniqueName": "C:\\Users\\thuan\\Downloads\\doan\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
         "projectName": "CrawlerProject_Web",
-        "projectPath": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
-        "packagesPath": "C:\\Users\\letho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\letho\\OneDrive\\Desktop\\NMPM1\\DANMCNPM\\CrawlerProject_Web\\obj\\",
+        "projectPath": "C:\\Users\\thuan\\Downloads\\doan\\DANMCNPM\\CrawlerProject_Web\\CrawlerProject_Web.csproj",
+        "packagesPath": "C:\\Users\\thuan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thuan\\Downloads\\doan\\DANMCNPM\\CrawlerProject_Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\letho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thuan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
