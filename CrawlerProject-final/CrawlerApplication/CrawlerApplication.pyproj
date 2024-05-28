@@ -46,7 +46,7 @@
     <Content Include="it_conference\scrapy.cfg" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="..\..\..\..\..\..\scrapy101\projects\">
+    <Interpreter Include="C:\Users\thuan\scrapy101\projects\">
       <Id>projects</Id>
       <Version>0.0</Version>
       <Description>projects (Python 3.12 (64-bit))</Description>

@@ -33,7 +33,7 @@ class ConferencesCrawler(scrapy.Spider):
     name = "conferences"
     next_page = 1
     total_pages = 1
-    max_conference = 10
+    max_conference = 50
     
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
