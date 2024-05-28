@@ -60,6 +60,7 @@ namespace CrawlerProject_Web.Controllers
             var userDTO = await _authService.RegisterAsync(obj);
             if (userDTO.Id != 0)
             {
+                TempData["success"] = "Your account has been successfully created.";
                 return RedirectToAction("Login");
             }
             TempData["error"] = "Error: Something Wrong!";
