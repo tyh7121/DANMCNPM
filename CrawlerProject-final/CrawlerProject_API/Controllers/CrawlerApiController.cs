@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CrawlerProject_API.Models;
+using CrawlerProject_API.Repository.IRepository;
 
 namespace CrawlerProject_API.Controllers
 {
@@ -8,32 +9,17 @@ namespace CrawlerProject_API.Controllers
     [ApiController]
     public class CrawlerApiController : Controller
     {
-        private readonly ConferencesContext _context;
-        public CrawlerApiController(ConferencesContext context)
+        private readonly IConferenceRepository _context;
+        public CrawlerApiController(IConferenceRepository context)
         {
             _context = context;
         }
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<Conference>>> GetAll([FromQuery]string? search, int pageSize = 0, int pageNumber = 1)
+        public async Task<ActionResult<IEnumerable<Conference>>> GetAll()
         {
-            IQueryable<Conference> query = _context.Conferences;
-            if (pageSize > 0)
-            {
-                if (pageSize > 100)
-                {
-                    pageSize = 100;
-                }
-                query = query.Skip(pageSize * (pageNumber - 1)).Take(pageSize);
-            }
-
-            IEnumerable<Conference> conferences = await query.ToListAsync();
-            if (!string.IsNullOrEmpty(search))
-            {
-                search = search.Trim().ToLower();
-                conferences = conferences.Where(h => h.Title.ToLower().Contains(search) || h.Organizer.ToLower().Contains(search));
-            }
+            IEnumerable<Conference> conferences = await _context.GetAll();
 
             return Ok(conferences);
         }

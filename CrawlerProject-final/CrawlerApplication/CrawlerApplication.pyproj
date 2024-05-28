@@ -12,7 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>CrawlerApplication</Name>
     <RootNamespace>PythonApplication1</RootNamespace>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|projects|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +46,15 @@
     <Content Include="it_conference\scrapy.cfg" />
   </ItemGroup>
   <ItemGroup>
+    <Interpreter Include="..\..\..\..\..\..\scrapy101\projects\">
+      <Id>projects</Id>
+      <Version>0.0</Version>
+      <Description>projects (Python 3.12 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
     <Interpreter Include="env\">
       <Id>env</Id>
       <Version>3.9</Version>

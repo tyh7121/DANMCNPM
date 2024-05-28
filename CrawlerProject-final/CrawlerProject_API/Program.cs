@@ -1,14 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using CrawlerProject_API.Models;
 using Microsoft.OpenApi.Models;
+using CrawlerProject_API.Data;
+using CrawlerProject_API.Repository.IRepository;
+using CrawlerProject_API.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<ConferencesContext>(option =>
+builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("CrawlerProjectDb"));
 });
+
+builder.Services.AddScoped<IConferenceRepository, ConferenceRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

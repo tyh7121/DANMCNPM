@@ -1,7 +1,13 @@
-﻿namespace CrawlerProject_API.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CrawlerProject_API.Models;
 
 public class Conference
 {
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
     public string? Date { get; set; }
 
     public string? Title { get; set; }
