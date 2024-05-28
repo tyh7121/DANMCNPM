@@ -61,7 +61,7 @@ namespace CrawlerProject_API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<Conference>> Update(int id, [FromForm] UpdateConferenceDTO updateDTO)
+        public async Task<ActionResult<Conference>> Update(int id, [FromBody] Conference updateDTO)
         {
             var conference = await _context.GetAsync(id);
             if (conference.Id == 0)

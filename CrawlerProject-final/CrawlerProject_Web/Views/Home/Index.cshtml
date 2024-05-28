@@ -1,4 +1,5 @@
 ﻿@model List<Conference>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpAcc
 @{
     ViewData["Title"] = "Conferences";
 }
@@ -20,6 +21,11 @@
                             <th>Date</th>
                             <th>Deadline</th>
                             <th>Venue</th>
+                            @if (httpAcc.HttpContext.Session.GetString("JWTToken") != null &&
+                            httpAcc.HttpContext.Session.GetString("JWTToken").ToString().Length > 0)
+                            {
+                                <th></th>
+                            }
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +42,14 @@
                                 <td class="">@(Model[i].Date)</td>
                                 <td class="w-25">@(Model[i].Deadline)</td>
                                 <td class="w-25">@(Model[i].Country)</td>
+                                @if (httpAcc.HttpContext.Session.GetString("JWTToken") != null &&
+                               httpAcc.HttpContext.Session.GetString("JWTToken").ToString().Length > 0)
+                                {
+                                    <td>
+                                        <a asp-controller="Home" asp-action="UpdateConference" asp-route-ConferenceId="@Model[i].Id" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                                        <a asp-controller="Home" asp-action="DeleteConference" asp-route-ConferenceId="@Model[i].Id" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                                    </td>
+                                }
                             </tr>
                         }
                     </tbody>
