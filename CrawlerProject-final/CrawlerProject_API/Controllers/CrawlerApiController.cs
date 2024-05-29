@@ -27,6 +27,7 @@ namespace CrawlerProject_API.Controllers
         }
 
         [HttpGet("{id:int}", Name = "Get")]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Conference>> Get(int id)
@@ -41,6 +42,7 @@ namespace CrawlerProject_API.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -57,6 +59,7 @@ namespace CrawlerProject_API.Controllers
         }
 
         [HttpPut("{id:int}")]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -1,6 +1,7 @@
 using CrawlerProject_Web.Models;
 using CrawlerProject_Web.Models.DTO;
 using CrawlerProject_Web.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
@@ -23,6 +24,7 @@ namespace CrawlerProject_Web.Controllers
             return View(list);
         }
 
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> UpdateConference(int ConferenceId)
         {
             string token = HttpContext.Session.GetString("JWTToken");
@@ -37,6 +39,7 @@ namespace CrawlerProject_Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> UpdateConference(Conference dto)
         {
             string token = HttpContext.Session.GetString("JWTToken");
@@ -51,6 +54,7 @@ namespace CrawlerProject_Web.Controllers
             return View(dto);
         }
 
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteConference(int ConferenceId)
         {
             string token = HttpContext.Session.GetString("JWTToken");
@@ -65,6 +69,7 @@ namespace CrawlerProject_Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteConference(Conference dto)
         {
             string token = HttpContext.Session.GetString("JWTToken");
