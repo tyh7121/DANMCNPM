@@ -2,6 +2,7 @@
 using CrawlerProject_API.Models;
 using CrawlerProject_API.Models.DTO;
 using CrawlerProject_API.Repository.IRepository;
+using CrawlerProject_API.Util;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -28,10 +29,18 @@ namespace CrawlerProject_API.Repository
 
         public async Task<LoginResponseDTO> Login(LoginRequestDTO loginRequestDTO)
         {
-            var user = _db.LocalUsers.FirstOrDefault(u => u.UserName.ToLower() == loginRequestDTO.UserName.ToLower()
-            && u.Password == loginRequestDTO.Password);
+            var user = _db.LocalUsers.FirstOrDefault(u => u.UserName.ToLower() == loginRequestDTO.UserName.ToLower());
 
             if (user == null)
+            {
+                return new LoginResponseDTO()
+                {
+                    Token = "",
+                    User = null
+                };
+            }
+
+            if (!PasswordHasher.CheckPassword(loginRequestDTO.Password, user.HashedPassword))
             {
                 return new LoginResponseDTO()
                 {
@@ -69,14 +78,14 @@ namespace CrawlerProject_API.Repository
             LocalUser user = new LocalUser()
             {
                 UserName = registerationRequestDTO.UserName,
-                Password = registerationRequestDTO.Password,
+                HashedPassword = PasswordHasher.HashPassword(registerationRequestDTO.Password),
                 Name = registerationRequestDTO.Name,
                 Role = registerationRequestDTO.Role
             };
 
             await _db.LocalUsers.AddAsync(user);
             await _db.SaveChangesAsync();
-            user.Password = "";
+            user.HashedPassword = "";
             return user;
         }
     }
